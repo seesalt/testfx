@@ -86,36 +86,25 @@ public class Main extends Application {
         Scene scene2 = new Scene(root2, 300, 250);
 
         //Event handlers for menu
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+        btn.setOnAction((ActionEvent event) -> {
 
-            @Override
-            public void handle(ActionEvent event) {
-                btn.setDisable(true);
-                btn2.setDisable(false);
-                schermContainer.setCenter(scherm1);
-            }
-        });
-
-        btn2.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                btn.setDisable(false);
-                btn2.setDisable(true);
-                schermContainer.setCenter(scherm2);
-
-            }
-        });
-
-        btn3.setOnAction((ActionEvent event) -> {
-
-            primaryStage.setScene(scene2);
+            btn.setDisable(true);
+            btn2.setDisable(false);
+            schermContainer.setCenter(scherm1);
 
         });
 
-        btn4.setOnAction((ActionEvent event) -> {
-            primaryStage.setScene(scene);
+        btn2.setOnAction((ActionEvent event) -> {
+
+            btn.setDisable(false);
+            btn2.setDisable(true);
+            schermContainer.setCenter(scherm2);
+
         });
+
+        btn3.setOnAction((ActionEvent event) -> primaryStage.setScene(scene2));
+
+        btn4.setOnAction((ActionEvent event) -> primaryStage.setScene(scene));
 
         //Magic
         primaryStage.setTitle("Hello World!");
