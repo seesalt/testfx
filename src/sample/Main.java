@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Root
@@ -103,12 +107,10 @@ public class Main extends Application {
             }
         });
 
-        btn3.setOnAction(new EventHandler<ActionEvent>() {
+        btn3.setOnAction((ActionEvent event) -> {
 
-            @Override
-            public void handle(ActionEvent event) {
-                primaryStage.setScene(scene2);
-            }
+            primaryStage.setScene(scene2);
+
         });
 
         btn4.setOnAction((ActionEvent event) -> {
@@ -119,11 +121,5 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
