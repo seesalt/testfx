@@ -48,6 +48,11 @@ public class Main extends Application {
         btn3.setPrefSize(400, 20);
         btn3.setStyle("-fx-base:yellow;-fx-border-color:red");
 
+        Button knop = new Button();
+        btn3.setText("Nieuw scherm");
+        btn3.setPrefSize(400, 20);
+        btn3.setStyle("-fx-background-color: azure");
+
         menu.getChildren().add(btn);
         menu.getChildren().add(btn2);
         menu.getChildren().add(btn3);
