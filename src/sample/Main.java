@@ -9,9 +9,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.Scene.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import javax.swing.*;
 
 public class Main extends Application {
 
@@ -33,6 +40,28 @@ public class Main extends Application {
         form.setAlignment(Pos.CENTER);
 
         root.getChildren().add(menu);
+        root.getChildren().add(form);
+
+        //Form - Text and buttons
+        Text welcome = new Text();
+        welcome.setFont(Font.font("Tahoma", FontWeight.NORMAL, 16));
+        form.add(welcome, 0, 0, 2, 1);
+        Label formLbl1 = new Label();
+        formLbl1.setText("Naam:");
+        form.add(formLbl1, 0, 1);
+        TextField formTf1 = new TextField();
+        form.add(formTf1, 1, 1);
+        Label formLbl2 = new Label();
+        formLbl2.setText("Geslacht:");
+        form.add(formLbl2, 0, 2);
+        ComboBox formCb1 = new ComboBox();
+        formCb1.getItems().addAll("Man", "Vrouw");
+        form.add(formCb1, 1, 2);
+
+        Button formBtnSubmit = new Button();
+        formBtnSubmit.setText("Bevestig");
+        form.add(formBtnSubmit, 2, 3);
+
 
         //Menu - Buttons
         Button btn = new Button();
@@ -114,10 +143,38 @@ public class Main extends Application {
         btn3.setOnAction((ActionEvent event) -> primaryStage.setScene(scene2));
 
         btn4.setOnAction((ActionEvent event) -> primaryStage.setScene(scene));
+        formBtnSubmit.setOnAction((ActionEvent event) -> {
+            String aanspreekVorm;
+            if (formCb1.getSelectionModel().getSelectedIndex() == 0) {
+                aanspreekVorm = "meneer";
+            } else if (formCb1.getSelectionModel().getSelectedIndex() == 1) {
+                aanspreekVorm = "mevrouw";
+            } else {
+                aanspreekVorm = "";
+            }
+        });
+
+//        formBtnSubmit.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                String aanspreekVorm;
+//                if(formCb1.getSelectionModel().getSelectedIndex() == 0){
+//                    aanspreekVorm = "meneer";
+//                }
+//                else if (formCb1.getSelectionModel().getSelectedIndex() == 1) {
+//                    aanspreekVorm = "mevrouw";
+//                }
+//                else {
+//                    aanspreekVorm = "";
+//                }
+//            }
+//        });
 
         //Magic
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+
 }
