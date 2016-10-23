@@ -27,6 +27,10 @@ public class Main extends Application {
         //Menu
         HBox menu = new HBox();
         menu.setAlignment(Pos.CENTER);
+        GridPane form = new GridPane();
+        form.setHgap(10);
+        form.setVgap(10);
+        form.setAlignment(Pos.CENTER);
 
         root.getChildren().add(menu);
 
@@ -51,7 +55,7 @@ public class Main extends Application {
         Button knop = new Button();
         btn3.setText("Nieuw scherm");
         btn3.setPrefSize(400, 20);
-        btn3.setStyle("-fx-background-color: azure");
+        btn3.setStyle("-fx-background-color: azure; -fx-border-color: crimson");
 
         menu.getChildren().add(btn);
         menu.getChildren().add(btn2);
