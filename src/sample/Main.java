@@ -50,6 +50,7 @@ public class Main extends Application {
         formLbl1.setText("Naam:");
         form.add(formLbl1, 0, 1);
         TextField formTf1 = new TextField();
+        // formTf1.wid
         form.add(formTf1, 1, 1);
         Label formLbl2 = new Label();
         formLbl2.setText("Geslacht:");
@@ -81,10 +82,10 @@ public class Main extends Application {
         btn3.setPrefSize(400, 20);
         btn3.setStyle("-fx-base:yellow;-fx-border-color:red");
 
-        Button knop = new Button();
-        btn3.setText("Nieuw scherm");
-        btn3.setPrefSize(400, 20);
-        btn3.setStyle("-fx-background-color: azure; -fx-border-color: crimson");
+//        Button knop = new Button();
+//        btn3.setText("Nieuw scherm");
+//        btn3.setPrefSize(400, 20);
+//        btn3.setStyle("-fx-background-color: azure; -fx-border-color: crimson");
 
         menu.getChildren().add(btn);
         menu.getChildren().add(btn2);
@@ -123,6 +124,18 @@ public class Main extends Application {
 
         Scene scene2 = new Scene(root2, 300, 250);
 
+        //Scene 3
+        VBox root3 = new VBox();
+        Button slaop = new Button("Sla Op");
+        Button wijzig = new Button("Wijzig");
+        Button annuleer = new Button("Annuleer");
+        root3.getChildren().add(slaop);
+        root3.getChildren().add(wijzig);
+        root3.getChildren().add(annuleer);
+
+        Scene scene3 = new Scene(root3, 300, 250);
+
+
         //Event handlers for menu
         btn.setOnAction((ActionEvent event) -> {
 
@@ -146,13 +159,17 @@ public class Main extends Application {
         formBtnSubmit.setOnAction((ActionEvent event) -> {
             String aanspreekVorm;
             if (formCb1.getSelectionModel().getSelectedIndex() == 0) {
-                aanspreekVorm = "meneer";
+                aanspreekVorm = "meneer ";
             } else if (formCb1.getSelectionModel().getSelectedIndex() == 1) {
                 aanspreekVorm = "mevrouw";
             } else {
                 aanspreekVorm = "";
             }
+            welcome.setText("Dag " + aanspreekVorm + formTf1.getText());
+
         });
+
+        slaop.setOnAction((ActionEvent event) -> primaryStage.setScene(scene3));
 
 //        formBtnSubmit.setOnAction(new EventHandler<ActionEvent>() {
 //            @Override
